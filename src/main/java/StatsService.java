@@ -43,23 +43,8 @@ public class StatsService {
     }
 
 
-    public int numberOfMonthsSalesBelowAverage(int[] data) {           //5
-        int sum = 0, temp = 0, numberOfMonths = 0;
-        float average = 0;
-        for (int b : data) {
-            sum += b;
-            temp++;
-        }
-        average = (float) sum / temp;
-        for (int b : data) {
-            if (b < average) {
-                numberOfMonths++;
-            }
-        }
-        return numberOfMonths;
-    }
 
-    public int numberOfMonthsSalesAboveAverage(int[] data) {
+    public int numberOfMonthsSalesAverage(int[] data, boolean isAbove) {
         int sum = 0, temp = 0, numberOfMonths = 0;
         float average = 0;
         for (int b : data) {
@@ -68,8 +53,14 @@ public class StatsService {
         }
         average = (float) sum / temp;
         for (int b : data) {
-            if (b > average) {
-                numberOfMonths++;
+            if (isAbove) {
+                if (b > average) {
+                    numberOfMonths++;
+                }
+            } else {
+                if (b < average) {
+                    numberOfMonths++;
+                }
             }
         }
         return numberOfMonths;

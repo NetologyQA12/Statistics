@@ -41,7 +41,7 @@ class StatsServiceTest {
     void numberOfMonthsSalesBelowAverage() {             // 5 Кол-во месяцев, в которых продажи были ниже среднего
         StatsService servise = new StatsService();
         int exp = 5;
-        int act = servise.numberOfMonthsSalesBelowAverage(data);
+        int act = servise.numberOfMonthsSalesAverage(data, false);
         assertEquals(exp, act);
     }
 
@@ -49,7 +49,7 @@ class StatsServiceTest {
     void numberOfMonthsSalesAboveAverage() {             // 6 Кол-во месяцев, в которых продажи были выше среднего
         StatsService servise = new StatsService();
         int exp = 5;
-        int act = servise.numberOfMonthsSalesAboveAverage(data);
+        int act = servise.numberOfMonthsSalesAverage(data, true);
         assertEquals(exp, act);
     }
 
